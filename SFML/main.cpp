@@ -65,7 +65,7 @@ int main()
         horizAxisLine.setFillColor(sf::Color(0, 0, 0)); horizAxisLine.setSize(sf::Vector2f(900, 2)); horizAxisLine.setPosition(100, winSize.y - 60); horizAxisLine.setRotation(0);
         vertAxisLine.setFillColor(sf::Color(0, 0, 0)); vertAxisLine.setSize(sf::Vector2f(700, 2));  vertAxisLine.setPosition(100, winSize.y - 60); vertAxisLine.setRotation(-90); // anticlockwise
 
-        for (int i = 0; i <= vertAxisLine.getLocalBounds().width; i+=50)
+        for (int i = 0; i <= vertAxisLine.getLocalBounds().width; i += vertAxisLine.getLocalBounds().width / 10)
         {
             horizLine.setFillColor(sf::Color(0, 0, 0)); horizLine.setSize(sf::Vector2f(900, 1)); horizLine.setPosition(100, winSize.y - (60 +i)); horizLine.setRotation(0);
             window.draw(horizLine);

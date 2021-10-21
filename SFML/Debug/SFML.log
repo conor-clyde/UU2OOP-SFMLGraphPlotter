@@ -25,6 +25,11 @@ C:\Users\csf21clc\Documents\As\SFML\main.cpp(66,141): warning C4244: 'argument':
           [
               T=unsigned int
           ]
+C:\Users\csf21clc\Documents\As\SFML\main.cpp(68,112): warning C4244: '+=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
 C:\Users\csf21clc\Documents\As\SFML\main.cpp(70,135): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
           with
           [
