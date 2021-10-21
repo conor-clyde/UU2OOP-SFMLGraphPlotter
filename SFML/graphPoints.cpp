@@ -46,13 +46,13 @@ void graphPoints::loadPoints(std::string _fileName, sf::RenderWindow& _win) {
 
     for (int i = 0; i < cords.size(); ++i) // for number of rows (300 in this example)
     {
-        addPoint(sf::Color(0, 0, 255), 1, sf::Vector2u(1, 1), sf::Vector2f(0, 0)); 
+        addPoint(sf::Color(0, 0, 255), 2, sf::Vector2u(1, 1), sf::Vector2f(0, 0)); 
         for (int j = 0; j < cords[j].size(); ++j) // for number of columns (2)
         {
             // set (x, y) position for each graph point (SFML circle object). 
             // Note that " _win.getSize().y - (50 + " is used to draw the points from bottom of the screen up (starting at my x-axis line at y = 50)
             if (j == 0) points[i].setPosition(sf::Vector2f(float(stoi(cords[i][j])), 0)); // x coordinate 
-            if (j == 1) points[i].setPosition(sf::Vector2f(points[i].getPosition().x + 50 + pointsGap * i, _win.getSize().y - (50 + float(stoi(cords[i][j]))))); // adjusted y coordinate
+            if (j == 1) points[i].setPosition(sf::Vector2f(points[i].getPosition().x + 100 + pointsGap * i, _win.getSize().y - (60 + 6*float(stoi(cords[i][j]))))); // adjusted y coordinate
         }
     }
 #pragma endregion

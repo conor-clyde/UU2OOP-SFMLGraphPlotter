@@ -1,0 +1,55 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (SFML_Points.vcxproj, SFML_Test.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  main.cpp
+C:\Users\csf21clc\Documents\As\SFML\main.cpp(27,37): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+C:\Users\csf21clc\Documents\As\SFML\main.cpp(37,50): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+C:\Users\csf21clc\Documents\As\SFML\main.cpp(37,37): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+C:\Users\csf21clc\Documents\As\SFML\main.cpp(65,143): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+C:\Users\csf21clc\Documents\As\SFML\main.cpp(66,141): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+C:\Users\csf21clc\Documents\As\SFML\main.cpp(70,135): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+C:\Users\csf21clc\Documents\As\SFML\main.cpp(75,51): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+C:\Users\csf21clc\Documents\As\SFML\main.cpp(80,111): warning C4244: '+=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\csf21clc\Documents\As\SFML\main.cpp(82,134): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+C:\Users\csf21clc\Documents\As\SFML\main.cpp(82,120): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\csf21clc\Documents\As\SFML\main.cpp(87,55): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+C:\Users\csf21clc\Documents\As\SFML\main.cpp(87,40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  SFML.vcxproj -> C:\Users\csf21clc\Documents\As\Debug\SFML_Graphics.exe
