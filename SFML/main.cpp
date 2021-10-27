@@ -1,109 +1,121 @@
-/*
-* An SFML application - Darryl Charles
-* SFML Documentation https://www.sfml-dev.org/documentation/2.5.1/
-* SFML Shapes Tutorials https://www.sfml-dev.org/tutorials/2.5/graphics-shape.php
-* SGML Graphics tutorial https://gamefromscratch.com/sfml-c-tutorial-basic-graphics/
-*/
-#include <iostream>                                                     // std namespace
-#include <SFML/Graphics.hpp>                                            // sf namespace 
+//Filename: main.cpp
+//Description: OOP Assignment 1 - main file
+//Author: Conor Clyde
+//Date: 26/10/21
+//Last Updated: 27/10/21
+
+#include <iostream>                                        //std namespace
+#include <SFML/Graphics.hpp>                               //sf namespace 
 #include "graphPoints.h"
+#include "MyVal.h"
 
 int main()
 {
+	int menuChoice, labelChoice, colourChoice = 1;
+	std::string csvFileLoc = "HeartRate.csv", graphTitleTxt = "Heart Rate Over Time", xAxisLabelTxt = "Time (seconds)", yAxisLabelTxt = "Heart Rate";
+
+	//Output welcome msg
+	std::cout << "Welcome to Graph Loader 3000." << std::endl << std::endl;
+
 #pragma region Window Creation
-    sf::RenderWindow window(sf::VideoMode(1200, 800), "Plot Points!", sf::Style::Default, sf::ContextSettings(24));   // render a Window
-    window.setVerticalSyncEnabled(true);
-    sf::Vector2u winSize = window.getSize();
+	//Render a window
+	sf::RenderWindow window(sf::VideoMode(1200, 800), "Graph", sf::Style::Default, sf::ContextSettings(24));
+	window.setVerticalSyncEnabled(true);
 
+	//Get window size
+	sf::Vector2u winSize = window.getSize();
 
-    sf::Font font;
+	//Load in font
+	sf::Font font;
 
-    if (!font.loadFromFile(".\\fonts\\arial.ttf"))
-        return EXIT_FAILURE;
+	if (!font.loadFromFile(".\\fonts\\arial.ttf"))
+		return EXIT_FAILURE;
 
-    sf::Text graphTitle("Heart Rate Over Time", font, 24);
+	//Define main x and y axis lines
+	sf::RectangleShape horizAxisLine; sf::RectangleShape vertAxisLine;
 
-    graphTitle.setFillColor(sf::Color::Black);
-    graphTitle.setPosition(winSize.x/2, 6);
-
-    sf::Text yAxisLabel("Heart Rate", font, 16);
-    yAxisLabel.setFillColor(sf::Color::Black);
-    yAxisLabel.setPosition(10, 400);
-   
-   
-
-    sf::Text xAxisLabel("Time (seconds)", font, 16);
-    xAxisLabel.setFillColor(sf::Color::Black);
-    xAxisLabel.setPosition(winSize.x/2, winSize.y-24);
-  
-
-   
-
+	horizAxisLine.setFillColor(sf::Color(0, 0, 0)); horizAxisLine.setSize(sf::Vector2f(900, 2)); horizAxisLine.setPosition(100, winSize.y - 60); horizAxisLine.setRotation(0);
+	vertAxisLine.setFillColor(sf::Color(0, 0, 0)); vertAxisLine.setSize(sf::Vector2f(700, 2));  vertAxisLine.setPosition(100, winSize.y - 60); vertAxisLine.setRotation(-90); // anticlockwise
 
 #pragma endregion
-    graphPoints graphPts;                                               // create an instance of my point plotting class
-    graphPts.loadPoints("HeartRate.csv", window);
-    while (window.isOpen())                                             // This is the Windows application loop - infinite loop until closed
-    {
+	//Create graphPoints object
+	graphPoints graphPts;
+
+	//Call method to load points from the file
+	graphPts.loadPoints(csvFileLoc, window, colourChoice, horizAxisLine, vertAxisLine);
+
+	//Windows application loop - infinite loop until closed
+	while (window.isOpen())
+	{
+
 #pragma region Check for Exit
-        sf::Event event;                                                // Windows is event driven - so check for events
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
+		//Windows is event drive - so this checks for a close event
+		sf::Event event;
+		while (window.pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed)
+				window.close();
+		}
 
 #pragma endregion
-        
-        // Set up x and y axis lines - this could be modified to look better. Further lines can be drawn in the same way. 
-        // Lines can also be draw more efficiently with vertices. https://en.sfml-dev.org/forums/index.php?topic=11121.0
-        // A function for this code would be better.
-        sf::RectangleShape horizLine; sf::RectangleShape vertLine; sf::RectangleShape horizAxisLine; sf::RectangleShape vertAxisLine;
 
-        window.clear(sf::Color(168, 168, 168));                         // Clear graphics buffer
+		//Clear graphics buffer
+		window.clear(sf::Color(168, 168, 168));
 
-        horizAxisLine.setFillColor(sf::Color(0, 0, 0)); horizAxisLine.setSize(sf::Vector2f(900, 2)); horizAxisLine.setPosition(100, winSize.y - 60); horizAxisLine.setRotation(0);
-        vertAxisLine.setFillColor(sf::Color(0, 0, 0)); vertAxisLine.setSize(sf::Vector2f(700, 2));  vertAxisLine.setPosition(100, winSize.y - 60); vertAxisLine.setRotation(-90); // anticlockwise
+		//Calls a method to draw the graph axis and labels
+		graphPts.drawAxis(window, winSize, font, graphTitleTxt, xAxisLabelTxt, yAxisLabelTxt, horizAxisLine, vertAxisLine);
 
-        for (int i = 0; i <= vertAxisLine.getLocalBounds().width; i += vertAxisLine.getLocalBounds().width / 10)
-        {
-            horizLine.setFillColor(sf::Color(0, 0, 0)); horizLine.setSize(sf::Vector2f(900, 1)); horizLine.setPosition(100, winSize.y - (60 +i)); horizLine.setRotation(0);
-            window.draw(horizLine);
+		//Calls a method to draw the points to the graph
+		graphPts.drawPoints(window);
 
-            sf::Text yAxisValue(std::to_string(i/7), font, 14);
-            yAxisValue.setFillColor(sf::Color::Black);
-            yAxisValue.setPosition(100, winSize.y - (60 + i));
-            yAxisValue.setOrigin(yAxisValue.getLocalBounds().width+5, yAxisValue.getLocalBounds().height/2);
-            window.draw(yAxisValue);
-        }
+		//Displays the graphics from the buffer to the display
+		window.display();
 
-        for (int i = 0; i <= horizAxisLine.getLocalBounds().width; i += horizAxisLine.getLocalBounds().width/6)
-        {
-            vertLine.setFillColor(sf::Color(0, 0, 0)); vertLine.setSize(sf::Vector2f(700, 1)); vertLine.setPosition(100+i, winSize.y - 60 ); vertLine.setRotation(-90);
-            window.draw(vertLine);
+		//Menu - Gets user input
+		menuChoice = ccval::ValidRangeInt("1: Enter file to load\n2: Set graph colour\n3: Set graph labels\n4: Exit", 1, 4);
 
-            sf::Text xAxisValue(std::to_string(i/3), font, 14);
-            xAxisValue.setFillColor(sf::Color::Black);
-            xAxisValue.setPosition(100 + i, winSize.y - 60);
-            xAxisValue.setOrigin(xAxisValue.getLocalBounds().width/2, xAxisValue.getLocalBounds().height - 14);
-            window.draw(xAxisValue);
-        }
+		switch (menuChoice)
+		{
+		case 1:
+			//Get CSV file from user
+			std::cout << "Please input the name of the file to be used.\nHint: This project comes with HeartRate.CSV and SecondFile.CSV." << std::endl;
+			std::cin >> csvFileLoc;
 
-        
+			graphPts.loadPoints(csvFileLoc, window, colourChoice, horizAxisLine, vertAxisLine);
+			break;
+		case 2:
+			//Get graph colour from user
+			colourChoice = ccval::ValidRangeInt("Please select a graph colour by entering the corresponding number.\n1: Red \n2: Blue\n3: Yellow\n4: Green \n5: Orange\n6: Purple\n7: Return to main menu", 1, 7);
+			if (colourChoice != 7)
+				graphPts.loadPoints(csvFileLoc, window, colourChoice, horizAxisLine, vertAxisLine);
+			break;
+		case 3:
+			//Ask user which label they wish to change
+			labelChoice = ccval::ValidRangeInt("Which label would you like to change?\n1: Graph Title \n2: x axis label\n3: y axis labele\n4: Return to main menu", 1, 4);
+			switch (labelChoice)
+			{
 
+			case 1:
+				//Get graph title from user
+				std::cout << "Please enter the graph title:" << std::endl;
+				std::cin >> graphTitleTxt;
+				break;
+			case 2:
+				//Get x axis label from user
+				std::cout << "Please enter the x axis label:" << std::endl;
+				std::cin >> xAxisLabelTxt;
+				break;
+			case 3:
+				//Get y axis label from user
+				std::cout << "Please enter the y axis label:" << std::endl;
+				std::cin >> yAxisLabelTxt;
+			}
 
+			break;
+		case 4:
+			return 0;
+		}
+	}
 
-        window.draw(horizAxisLine);                                         // Draw x and y axis lines 
-        window.draw(vertAxisLine);
-
-        window.draw(graphTitle);
-        window.draw(yAxisLabel);
-        window.draw(xAxisLabel);
-
-        graphPts.drawPoints(window);                                    // Call draw function in my class
-
-        window.display();                                               // Display the graphics from the buffer to the display
-    }
-
-    return 0;
+	return 0;
 }

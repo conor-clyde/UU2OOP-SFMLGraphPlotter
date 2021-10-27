@@ -154,9 +154,13 @@
   <ItemGroup>
     <ClCompile Include="graphPoints.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="My.cpp" />
+    <ClCompile Include="MyVal.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="graphPoints.h" />
+    <ClInclude Include="My.h" />
+    <ClInclude Include="MyVal.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
