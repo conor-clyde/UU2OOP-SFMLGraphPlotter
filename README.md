@@ -30,13 +30,13 @@ Graph after new file is loaded in<br /><br />
 **Option 2 Selection**<br />
 Command Prompt<br /><br />
 ![image](https://user-images.githubusercontent.com/91070226/152642078-b82753d7-1562-458e-a6b5-6b632350bc9f.png)<br /><br />
-Graph after new file is loaded in<br /><br />
+Graph after colour change<br /><br />
 ![image](https://user-images.githubusercontent.com/91070226/152642095-8d8f9b1f-c7e4-4144-a009-702e175c5af5.png)<br /><br />
 
 **Option 3 Selection**<br />
 Command Prompt<br /><br />
 ![image](https://user-images.githubusercontent.com/91070226/152642174-9005933c-97b0-48c2-b521-dc0e7ef76daf.png)<br /><br />
-Graph after new file is loaded in<br /><br />
+Graph after label changes<br /><br />
 ![image](https://user-images.githubusercontent.com/91070226/152642186-c5504bd7-6489-4ef7-833c-dea301d1827c.png)<br /><br />
 
 
