@@ -3,7 +3,7 @@
 
 Individual Project. Submitted as part of my Object-Oriented Programming class.
 
-The purpse of the project was to develop a windows application using SFML which plots the points of a set of values onto a graph on the user's screen. 
+The purpse of the project was to develop a window application using SFML which plots the points of a file of values onto a graph. 
 <br />The project could be taken further by presenting options to change the colour, and load in a different file of values, and by scaling the graph.
 
 I received 86% for this assignment.
