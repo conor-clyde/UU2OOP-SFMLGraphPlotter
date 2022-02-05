@@ -12,9 +12,15 @@ This is an window application.<br />
 Developed on Visual Studio using SFML.<br />
 C++ Programming Language.
 
-I received 86% for this assignment.
+## Screenshots of the application<br />
 
-## Screenshots of the application
+**Window shown upon running application**<br />
+![image](https://user-images.githubusercontent.com/91070226/152640391-e587387c-d65f-4fc0-b648-ff688c7fd5f2.png)
+
+
+**Command Prompt show upon running application**<br />
+Presents user with a list of options
+![image](https://user-images.githubusercontent.com/91070226/152640659-140f4f88-b643-4cff-868f-776fff73ff34.png)
 
 
 
