@@ -1,0 +1,159 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ConorClyde\\source\\repos\\UU2OOP-SFMLGraphPlotter\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C7CDC380-9466-474A-8CC8-6A108C9B30B8}|SFML\\SFML.vcxproj|C:\\Users\\ConorClyde\\source\\repos\\UU2OOP-SFMLGraphPlotter\\SFML\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C7CDC380-9466-474A-8CC8-6A108C9B30B8}|SFML\\SFML.vcxproj|solutionrelative:SFML\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C7CDC380-9466-474A-8CC8-6A108C9B30B8}|SFML\\SFML.vcxproj|C:\\Users\\ConorClyde\\source\\repos\\UU2OOP-SFMLGraphPlotter\\SFML\\MyVal.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C7CDC380-9466-474A-8CC8-6A108C9B30B8}|SFML\\SFML.vcxproj|solutionrelative:SFML\\MyVal.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C7CDC380-9466-474A-8CC8-6A108C9B30B8}|SFML\\SFML.vcxproj|C:\\Users\\ConorClyde\\source\\repos\\UU2OOP-SFMLGraphPlotter\\SFML\\MyVal.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C7CDC380-9466-474A-8CC8-6A108C9B30B8}|SFML\\SFML.vcxproj|solutionrelative:SFML\\MyVal.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C7CDC380-9466-474A-8CC8-6A108C9B30B8}|SFML\\SFML.vcxproj|C:\\Users\\ConorClyde\\source\\repos\\UU2OOP-SFMLGraphPlotter\\SFML\\graphPoints.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C7CDC380-9466-474A-8CC8-6A108C9B30B8}|SFML\\SFML.vcxproj|solutionrelative:SFML\\graphPoints.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C7CDC380-9466-474A-8CC8-6A108C9B30B8}|SFML\\SFML.vcxproj|C:\\Users\\ConorClyde\\source\\repos\\UU2OOP-SFMLGraphPlotter\\SFML\\graphPoints.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C7CDC380-9466-474A-8CC8-6A108C9B30B8}|SFML\\SFML.vcxproj|solutionrelative:SFML\\graphPoints.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ConorClyde\\source\\repos\\UU2OOP-SFMLGraphPlotter\\SFML\\Validation.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SFML\\Validation.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Microsoft\\VC\\v170\\Microsoft.CppBuild.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ConorClyde\\source\\repos\\UU2OOP-SFMLGraphPlotter\\SFML\\Debug\\SFML_Graphics.tlog\\link.secondary.1.tlog||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SFML\\Debug\\SFML_Graphics.tlog\\link.secondary.1.tlog||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MyVal.cpp",
+              "DocumentMoniker": "C:\\Users\\ConorClyde\\source\\repos\\UU2OOP-SFMLGraphPlotter\\SFML\\MyVal.cpp",
+              "RelativeDocumentMoniker": "SFML\\MyVal.cpp",
+              "ToolTip": "C:\\Users\\ConorClyde\\source\\repos\\UU2OOP-SFMLGraphPlotter\\SFML\\MyVal.cpp",
+              "RelativeToolTip": "SFML\\MyVal.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-28T07:59:35.396Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\Users\\ConorClyde\\source\\repos\\UU2OOP-SFMLGraphPlotter\\SFML\\main.cpp",
+              "RelativeDocumentMoniker": "SFML\\main.cpp",
+              "ToolTip": "C:\\Users\\ConorClyde\\source\\repos\\UU2OOP-SFMLGraphPlotter\\SFML\\main.cpp",
+              "RelativeToolTip": "SFML\\main.cpp",
+              "ViewState": "AgIAACgAAAAAAAAAAAD4v5EAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-28T07:57:46.064Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MyVal.h",
+              "DocumentMoniker": "C:\\Users\\ConorClyde\\source\\repos\\UU2OOP-SFMLGraphPlotter\\SFML\\MyVal.h",
+              "RelativeDocumentMoniker": "SFML\\MyVal.h",
+              "ToolTip": "C:\\Users\\ConorClyde\\source\\repos\\UU2OOP-SFMLGraphPlotter\\SFML\\MyVal.h",
+              "RelativeToolTip": "SFML\\MyVal.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-28T07:59:30.732Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "graphPoints.cpp",
+              "DocumentMoniker": "C:\\Users\\ConorClyde\\source\\repos\\UU2OOP-SFMLGraphPlotter\\SFML\\graphPoints.cpp",
+              "RelativeDocumentMoniker": "SFML\\graphPoints.cpp",
+              "ToolTip": "C:\\Users\\ConorClyde\\source\\repos\\UU2OOP-SFMLGraphPlotter\\SFML\\graphPoints.cpp",
+              "RelativeToolTip": "SFML\\graphPoints.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-28T07:58:48.747Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "graphPoints.h",
+              "DocumentMoniker": "C:\\Users\\ConorClyde\\source\\repos\\UU2OOP-SFMLGraphPlotter\\SFML\\graphPoints.h",
+              "RelativeDocumentMoniker": "SFML\\graphPoints.h",
+              "ToolTip": "C:\\Users\\ConorClyde\\source\\repos\\UU2OOP-SFMLGraphPlotter\\SFML\\graphPoints.h",
+              "RelativeToolTip": "SFML\\graphPoints.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-28T07:58:47.088Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Validation.cpp",
+              "DocumentMoniker": "C:\\Users\\ConorClyde\\source\\repos\\UU2OOP-SFMLGraphPlotter\\SFML\\Validation.cpp",
+              "RelativeDocumentMoniker": "SFML\\Validation.cpp",
+              "ToolTip": "C:\\Users\\ConorClyde\\source\\repos\\UU2OOP-SFMLGraphPlotter\\SFML\\Validation.cpp",
+              "RelativeToolTip": "SFML\\Validation.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-28T07:57:31.306Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Microsoft.CppBuild.targets",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Microsoft\\VC\\v170\\Microsoft.CppBuild.targets",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Microsoft\\VC\\v170\\Microsoft.CppBuild.targets",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Microsoft\\VC\\v170\\Microsoft.CppBuild.targets",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Microsoft\\VC\\v170\\Microsoft.CppBuild.targets",
+              "ViewState": "AgIAALcBAAAAAAAAAAApwM4BAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2025-05-28T07:57:23.494Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "link.secondary.1.tlog",
+              "DocumentMoniker": "C:\\Users\\ConorClyde\\source\\repos\\UU2OOP-SFMLGraphPlotter\\SFML\\Debug\\SFML_Graphics.tlog\\link.secondary.1.tlog",
+              "RelativeDocumentMoniker": "SFML\\Debug\\SFML_Graphics.tlog\\link.secondary.1.tlog",
+              "ToolTip": "C:\\Users\\ConorClyde\\source\\repos\\UU2OOP-SFMLGraphPlotter\\SFML\\Debug\\SFML_Graphics.tlog\\link.secondary.1.tlog",
+              "RelativeToolTip": "SFML\\Debug\\SFML_Graphics.tlog\\link.secondary.1.tlog",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAA6AQAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-05-28T07:55:58.916Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

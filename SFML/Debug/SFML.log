@@ -1,13 +1,7 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (SFML_Points.vcxproj, SFML_Test.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  main.cpp
-D:\I\S\U2\OOP\SFML\SFMLPointsClass\SFML\main.cpp(37,136): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-D:\I\S\U2\OOP\SFML\SFMLPointsClass\SFML\main.cpp(38,134): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-  SFML.vcxproj -> D:\I\S\U2\OOP\SFML\SFMLPointsClass\Debug\SFML_Graphics.exe
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(538,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (SFML_Points.vcxproj, SFML_Test.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  MyVal.cpp
+C:\Users\ConorClyde\source\repos\UU2OOP-SFMLGraphPlotter\SFML\MyVal.cpp(12,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\ConorClyde\source\repos\UU2OOP-SFMLGraphPlotter\SFML\MyVal.cpp(12,44): warning C4018: '>': signed/unsigned mismatch
+C:\Users\ConorClyde\source\repos\UU2OOP-SFMLGraphPlotter\SFML\MyVal.cpp(28,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\ConorClyde\source\repos\UU2OOP-SFMLGraphPlotter\SFML\MyVal.cpp(78,23): warning C4018: '<': signed/unsigned mismatch
+  SFML.vcxproj -> C:\Users\ConorClyde\Source\Repos\UU2OOP-SFMLGraphPlotter\Debug\SFML_Graphics.exe

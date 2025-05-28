@@ -1,121 +1,185 @@
-//Filename: main.cpp
-//Description: OOP Assignment 1 - main file
-//Author: Conor Clyde
-//Date: 26/10/21
-//Last Updated: 27/10/21
-
-#include <iostream>                                        //std namespace
-#include <SFML/Graphics.hpp>                               //sf namespace 
+#include <iostream>
+#include <SFML/Graphics.hpp>
+#include <thread>
+#include <mutex>
+#include <atomic>
 #include "graphPoints.h"
-#include "MyVal.h"
+#include "Validation.h"
 
-int main()
-{
-	int menuChoice, labelChoice, colourChoice = 1;
-	std::string csvFileLoc = "HeartRate.csv", graphTitleTxt = "Heart Rate Over Time", xAxisLabelTxt = "Time (seconds)", yAxisLabelTxt = "Heart Rate";
+// Configurations
+const std::string FONT_FILE = "./fonts/arial.ttf";
+const int WIDTH = 1200, HEIGHT = 800;
+const sf::Color BACKGROUND_COLOR(168, 168, 168);
+const sf::Color AXIS_COLOR = sf::Color::Black;
+const sf::Vector2f HORIZONTAL_AXIS_SIZE(900.f, 2.f);
+const sf::Vector2f VERTICAL_AXIS_SIZE(700.f, 2.f);
+const float HORIZONTAL_AXIS_Y_OFFSET = 60.f;
 
-	//Output welcome msg
-	std::cout << "Welcome to Graph Loader 3000." << std::endl << std::endl;
+// Shared variables
+std::atomic<bool> windowOpen(false);
+std::atomic<bool> shouldCloseWindow(false);
+std::atomic<bool> needsReload(true);
+std::mutex csvMutex;
 
-#pragma region Window Creation
-	//Render a window
-	sf::RenderWindow window(sf::VideoMode(1200, 800), "Graph", sf::Style::Default, sf::ContextSettings(24));
-	window.setVerticalSyncEnabled(true);
+// Graph drawing functions
+void drawGraph(sf::RenderWindow& window, graphPoints& graphPts, const sf::Font& font,
+    const std::string& title, const std::string& xLabel, const std::string& yLabel,
+    const sf::RectangleShape& horizAxis, const sf::RectangleShape& vertAxis) {
+    window.clear(BACKGROUND_COLOR);
+    graphPts.drawAxis(window, window.getSize(), font, title, xLabel, yLabel, horizAxis, vertAxis);
+    graphPts.drawPoints(window);
+    window.display();
+}
 
-	//Get window size
-	sf::Vector2u winSize = window.getSize();
+void createAxisLines(sf::RectangleShape& horizAxisLine, sf::RectangleShape& vertAxisLine, sf::RenderWindow& window) {
+    horizAxisLine.setSize(HORIZONTAL_AXIS_SIZE);
+    horizAxisLine.setFillColor(AXIS_COLOR);
+    horizAxisLine.setPosition(100.f, window.getSize().y - HORIZONTAL_AXIS_Y_OFFSET);
+    vertAxisLine.setSize(VERTICAL_AXIS_SIZE);
+    vertAxisLine.setFillColor(AXIS_COLOR);
+    vertAxisLine.setPosition(100.f, window.getSize().y - HORIZONTAL_AXIS_Y_OFFSET);
+    vertAxisLine.setRotation(-90.f);
+}
 
-	//Load in font
-	sf::Font font;
+void sfmlWindowThread(std::string& csvFileLoc, int& colourChoice, graphPoints& graphPts,
+    sf::Font& font, std::string& graphTitle, std::string& xAxisLabel, std::string& yAxisLabel) {
 
-	if (!font.loadFromFile(".\\fonts\\arial.ttf"))
-		return EXIT_FAILURE;
+    sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Graph");
+    window.setVerticalSyncEnabled(true);
+    windowOpen = true;
 
-	//Define main x and y axis lines
-	sf::RectangleShape horizAxisLine; sf::RectangleShape vertAxisLine;
+    sf::RectangleShape horizAxisLine, vertAxisLine;
+    createAxisLines(horizAxisLine, vertAxisLine, window);
 
-	horizAxisLine.setFillColor(sf::Color(0, 0, 0)); horizAxisLine.setSize(sf::Vector2f(900, 2)); horizAxisLine.setPosition(100, winSize.y - 60); horizAxisLine.setRotation(0);
-	vertAxisLine.setFillColor(sf::Color(0, 0, 0)); vertAxisLine.setSize(sf::Vector2f(700, 2));  vertAxisLine.setPosition(100, winSize.y - 60); vertAxisLine.setRotation(-90); // anticlockwise
+    while (window.isOpen()) {
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed) window.close();
+        }
 
-#pragma endregion
-	//Create graphPoints object
-	graphPoints graphPts;
+        if (shouldCloseWindow.load()) {
+            window.close();
+        }
 
-	//Call method to load points from the file
-	graphPts.loadPoints(csvFileLoc, window, colourChoice, horizAxisLine, vertAxisLine);
+        if (needsReload.load()) {
+            std::string currentCSV;
+            {
+                std::lock_guard<std::mutex> lock(csvMutex);
+                currentCSV = csvFileLoc;
+            }
+            graphPts.loadPoints(currentCSV, window, colourChoice, horizAxisLine, vertAxisLine);
+            needsReload = false;
+        }
 
-	//Windows application loop - infinite loop until closed
-	while (window.isOpen())
-	{
+        drawGraph(window, graphPts, font, graphTitle, xAxisLabel, yAxisLabel, horizAxisLine, vertAxisLine);
+    }
 
-#pragma region Check for Exit
-		//Windows is event drive - so this checks for a close event
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-				window.close();
-		}
+    windowOpen = false;
+}
 
-#pragma endregion
+void changeLabels(std::string& graphTitle, std::string& xLabel, std::string& yLabel) {
+    int labelChoice = utilities::ValidRangeInt(
+        "\nWhich label would you like to change?\n"
+        "1: Graph Title\n"
+        "2: X-axis Label\n"
+        "3: Y-axis Label\n"
+        "0: Return to Main Menu\n",
+        0, 3
+    );
 
-		//Clear graphics buffer
-		window.clear(sf::Color(168, 168, 168));
+    if (labelChoice == 0) return;
 
-		//Calls a method to draw the graph axis and labels
-		graphPts.drawAxis(window, winSize, font, graphTitleTxt, xAxisLabelTxt, yAxisLabelTxt, horizAxisLine, vertAxisLine);
+    std::cin.ignore();
+    std::string newLabel;
+    std::cout << "Enter new label: ";
+    std::getline(std::cin, newLabel);
 
-		//Calls a method to draw the points to the graph
-		graphPts.drawPoints(window);
+    switch (labelChoice) {
+    case 1: graphTitle = newLabel; break;
+    case 2: xLabel = newLabel; break;
+    case 3: yLabel = newLabel; break;
+    }
+}
 
-		//Displays the graphics from the buffer to the display
-		window.display();
+// Main loop
+int main() {
+    std::string csvFileLoc = "HeartRate.csv";
+    std::string graphTitle = "Heart Rate over Time", xAxisLabel = "Time (sec.)", yAxisLabel = "Heart Rate";
+    int colourChoice = 1;
+    graphPoints graphPts;
+    sf::Font font;
 
-		//Menu - Gets user input
-		menuChoice = ccval::ValidRangeInt("1: Enter file to load\n2: Set graph colour\n3: Set graph labels\n4: Exit", 1, 4);
+    if (!font.loadFromFile(FONT_FILE)) {
+        std::cerr << "Failed to load font from " << FONT_FILE << std::endl;
+        return EXIT_FAILURE;
+    }
 
-		switch (menuChoice)
-		{
-		case 1:
-			//Get CSV file from user
-			std::cout << "Please input the name of the file to be used.\nHint: This project comes with HeartRate.CSV and SecondFile.CSV." << std::endl;
-			std::cin >> csvFileLoc;
+    std::thread windowThread;
 
-			graphPts.loadPoints(csvFileLoc, window, colourChoice, horizAxisLine, vertAxisLine);
-			break;
-		case 2:
-			//Get graph colour from user
-			colourChoice = ccval::ValidRangeInt("Please select a graph colour by entering the corresponding number.\n1: Red \n2: Blue\n3: Yellow\n4: Green \n5: Orange\n6: Purple\n7: Return to main menu", 1, 7);
-			if (colourChoice != 7)
-				graphPts.loadPoints(csvFileLoc, window, colourChoice, horizAxisLine, vertAxisLine);
-			break;
-		case 3:
-			//Ask user which label they wish to change
-			labelChoice = ccval::ValidRangeInt("Which label would you like to change?\n1: Graph Title \n2: x axis label\n3: y axis labele\n4: Return to main menu", 1, 4);
-			switch (labelChoice)
-			{
+    while (true) {
+        int menuChoice = utilities::ValidRangeInt(
+            "\nMenu:\n"
+            "1: Show Graph Window\n"
+            "2: Change Graph Data\n"
+            "3: Change Graph Colour\n"
+            "4: Change Graph Labels\n"
+            "0: Exit\n",
+            0, 4
+        );
 
-			case 1:
-				//Get graph title from user
-				std::cout << "Please enter the graph title:" << std::endl;
-				std::cin >> graphTitleTxt;
-				break;
-			case 2:
-				//Get x axis label from user
-				std::cout << "Please enter the x axis label:" << std::endl;
-				std::cin >> xAxisLabelTxt;
-				break;
-			case 3:
-				//Get y axis label from user
-				std::cout << "Please enter the y axis label:" << std::endl;
-				std::cin >> yAxisLabelTxt;
-			}
+        if (menuChoice == 0) break;
 
-			break;
-		case 4:
-			return 0;
-		}
-	}
+        switch (menuChoice) {
+        case 1:
+            if (!windowOpen.load()) {
+                windowThread = std::thread(sfmlWindowThread, std::ref(csvFileLoc), std::ref(colourChoice),
+                    std::ref(graphPts), std::ref(font), std::ref(graphTitle),
+                    std::ref(xAxisLabel), std::ref(yAxisLabel));
+            }
+            else {
+                std::cout << "Window is already open!\n";
+            }
+            break;
 
-	return 0;
+        case 2:
+        {
+            std::string newFile = utilities::ValidLetterNumber("Please enter a valid file name...") + ".csv";
+            {
+                std::lock_guard<std::mutex> lock(csvMutex);
+                csvFileLoc = newFile;
+            }
+            needsReload = true;
+        }
+        break;
+
+        case 3:
+            colourChoice = utilities::ValidRangeInt(
+                "\nSelect a graph colour:\n"
+                "1: Red\n"
+                "2: Blue\n"
+                "3: Yellow\n"
+                "4: Green\n"
+                "5: Orange\n"
+                "6: Purple\n"
+                "0: Return to main menu\n",
+                0, 6
+            );
+            if (colourChoice != 0) needsReload = true;
+            break;
+
+        case 4:
+            changeLabels(graphTitle, xAxisLabel, yAxisLabel);
+            break;
+        }
+    }
+
+    if (windowOpen.load()) {
+        shouldCloseWindow = true;
+    }
+
+    if (windowThread.joinable()) {
+        windowThread.join();
+    }
+
+    return 0;
 }

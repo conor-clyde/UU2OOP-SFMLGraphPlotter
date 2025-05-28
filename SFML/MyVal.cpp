@@ -1,15 +1,10 @@
-//Filename: MyVal.cpp
-//Description: OOP Assignment 1 - Implementation file for my validation methods
-//Author: Conor Clyde
-//Date: 26/10/21
-//Last Updated: 27/10/21
-
 #include <string>
 #include <iostream>
 #include "MyVal.h"
 #include "My.h"
 
-bool ccval::ValidLength(std::string txt, int min, int max)
+
+bool utilities::ValidLength(std::string txt, int min, int max)
 {
     bool ok = true;
     if (txt.empty())
@@ -20,7 +15,7 @@ bool ccval::ValidLength(std::string txt, int min, int max)
     return ok;
 }
 
-bool ccval::ValidLetterNumberWhitespace(std::string txt)
+bool utilities::ValidLetterNumberWhitespace(std::string txt)
 {
     bool ok = true;
 
@@ -40,28 +35,43 @@ bool ccval::ValidLetterNumberWhitespace(std::string txt)
     return ok;
 }
 
-bool ccval::ValidLetterNumber(std::string txt)
-{
-    bool ok = true;
+std::string utilities::ValidLetterNumber(std::string msg) {
+    std::string txt;
+    bool ok = false;
 
-    ccmy::trim(txt);
+    do {
+        try {
+            ok = true;
+            std::cout << msg << std::endl;
+            std::cin >> txt;
 
-    if (txt.length() == 0)
-        ok = false;
-    else
-    {
-        for (int x = 0; x < txt.length(); x++)
-        {
-            if (!(isalnum(txt[x])))
+            ccmy::trim(txt);
+
+            if (txt.empty()) {
                 ok = false;
-        }
-    }
+                throw "Input cannot be empty.\n";
+            }
 
-    return ok;
+            for (char ch : txt) {
+                if (!std::isalnum(static_cast<unsigned char>(ch))) {
+                    ok = false;
+                    throw "Input must contain only letters and numbers.\n";
+                }
+            }
+
+            std::cout << "[DEBUG] Input received: '" << txt << "'\n";
+
+        }
+        catch (const char* ex) {
+            std::cout << "Error: " << ex;
+        }
+    } while (!ok);
+
+    return txt;
 }
 
 
-bool ccval::ValidNumber(std::string txt)
+bool utilities::ValidNumber(std::string txt)
 {
     bool ok = true;
 
@@ -74,7 +84,7 @@ bool ccval::ValidNumber(std::string txt)
     return ok;
 }
 
-int ccval::ValidRangeInt(std::string msg, int min, int max)
+int utilities::ValidRangeInt(std::string msg, int min, int max)
 {
     int num = 0;
     bool ok;
@@ -122,7 +132,7 @@ int ccval::ValidRangeInt(std::string msg, int min, int max)
     return num;
 }
 
-char ccval::ValidYN(std::string msg)
+char utilities::ValidYN(std::string msg)
 {
     char ch;
 
