@@ -6,6 +6,8 @@
 #include "graphPoints.h"
 #include "Validation.h"
 
+
+
 // Configurations
 const std::string FONT_FILE = "./fonts/arial.ttf";
 const int WIDTH = 1200, HEIGHT = 800;
@@ -101,7 +103,6 @@ void changeLabels(std::string& graphTitle, std::string& xLabel, std::string& yLa
     }
 }
 
-// Main loop
 int main() {
     std::string csvFileLoc = "HeartRate.csv";
     std::string graphTitle = "Heart Rate over Time", xAxisLabel = "Time (sec.)", yAxisLabel = "Heart Rate";

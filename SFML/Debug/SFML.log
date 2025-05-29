@@ -1,7 +1,8 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(538,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (SFML_Points.vcxproj, SFML_Test.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  MyVal.cpp
-C:\Users\ConorClyde\source\repos\UU2OOP-SFMLGraphPlotter\SFML\MyVal.cpp(12,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\ConorClyde\source\repos\UU2OOP-SFMLGraphPlotter\SFML\MyVal.cpp(12,44): warning C4018: '>': signed/unsigned mismatch
-C:\Users\ConorClyde\source\repos\UU2OOP-SFMLGraphPlotter\SFML\MyVal.cpp(28,27): warning C4018: '<': signed/unsigned mismatch
-C:\Users\ConorClyde\source\repos\UU2OOP-SFMLGraphPlotter\SFML\MyVal.cpp(78,23): warning C4018: '<': signed/unsigned mismatch
+  validation.cpp
+C:\Users\ConorClyde\source\repos\UU2OOP-SFMLGraphPlotter\SFML\validation.cpp(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\ConorClyde\source\repos\UU2OOP-SFMLGraphPlotter\SFML\validation.cpp(11,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\ConorClyde\source\repos\UU2OOP-SFMLGraphPlotter\SFML\validation.cpp(11,44): warning C4018: '>': signed/unsigned mismatch
+C:\Users\ConorClyde\source\repos\UU2OOP-SFMLGraphPlotter\SFML\validation.cpp(26,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\ConorClyde\source\repos\UU2OOP-SFMLGraphPlotter\SFML\validation.cpp(77,23): warning C4018: '<': signed/unsigned mismatch
   SFML.vcxproj -> C:\Users\ConorClyde\Source\Repos\UU2OOP-SFMLGraphPlotter\Debug\SFML_Graphics.exe

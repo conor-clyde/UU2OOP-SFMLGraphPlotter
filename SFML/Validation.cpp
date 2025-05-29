@@ -1,7 +1,6 @@
 #include <string>m
 #include <iostream>
-
-#include "My.h"
+#include "common.h"
 #include "Validation.h"
 
 bool utilities::ValidLength(std::string txt, int min, int max) {
@@ -17,7 +16,7 @@ bool utilities::ValidLength(std::string txt, int min, int max) {
 bool utilities::ValidLetterNumberWhitespace(std::string txt) {
     bool ok = true;
 
-    ccmy::trim(txt);
+    utilities::trim(txt);
 
     if (txt.length() == 0)
         ok = false;
@@ -46,7 +45,7 @@ std::string utilities::ValidLetterNumber(std::string msg) {
             std::cout << "[DEBUG] Input received: '" << txt << "'\n";
 
 
-            ccmy::trim(txt);
+            utilities::trim(txt);
 
 
 
